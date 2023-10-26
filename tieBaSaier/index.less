@@ -1,0 +1,418 @@
+html.light {
+  --color: rgba(122, 115, 116, 1);
+  --activeColor: rgba(56, 25, 36, 1);
+  --color-bleak: rgba(122, 115, 116, 1);
+  --bac: rgb(255, 255, 255);
+  --bac-bleak: rgba(0, 0, 0, .1) !important;
+}
+
+// 深色模式
+html.dark {
+  --activeColor: rgba(237, 90, 101, 1);
+  --color: rgba(218, 212, 203, 1);
+  --color-bleak: rgba(218, 212, 203, .6);
+  --bac: rgb(31, 32, 36);
+  --bac-bleak: rgba(255, 255, 255, .1) !important;
+}
+
+@btn-skyblue: var(--color);
+@btn-skyblue-bleak: var(--color-bleak);
+@btn-skyblue-none: rgba(69, 159, 251, 0);
+// 主题颜色
+@themeColor: @btn-skyblue;
+// 檀紫
+@themeActiveColor: var(--activeColor);
+// 二级主题色
+@themeColor-se: rgba(56, 25, 36, .6);
+@themeColor-bleak: @btn-skyblue-bleak;
+@themeColor-bleak-bleak: @fontColor-bleak-bleak;
+// 主题色翻转
+@themeColorReversal: @btn-hoverColor;
+@themeColorNone: @btn-skyblue-none;
+// 链接文字激活样式
+@themeColorActive: @dangerColor-bleak;
+@themeBackgroundColor: @fontColor-bleak-bleak;
+
+// 枫叶红
+// danger
+@dangerColor: rgba(194, 31, 48, 1);
+@dangerColor-bleak: rgba(194, 31, 48, .5);
+
+// success
+// 美蝶绿
+@successColor: rgba(18, 170, 156, 1);
+@successColor-bleak: rgba(18, 170, 156, .5);
+
+// ready
+//星蓝
+@startColor: rgba(22, 97, 171, 1);
+@startColor-bleak: rgba(22, 97, 171, .5);
+
+@btn-hoverColor: #ffffff;
+@borderColor: rgba(69, 159, 251, .5);
+@padding: .3rem;
+// 字体大小
+@fontSize-s-su: .5rem;
+@fontSize-s: .5rem;
+@fontSize-n: .75rem;
+@fontSize-l: 1rem;
+@fontSize-l-su: 1.1rem;
+
+// line height
+@lineHeight-s: 1rem;
+@lineHeight-n: 1.2rem;
+@lineHeight-l: 1.5rem;
+
+//font weight
+@fontWeight-s: 400;
+@fontWeight-n: 500;
+@fontWeight-l: bold;
+@fontWeight-l-su: bolder;
+
+// @radio: .3rem;
+@radio-s: .1rem;
+@radio-n: .2em;
+@radio-l: 1.4rem;
+
+// padding的尺寸变量
+@p-small: .1rem;
+@p-normal: .3rem;
+@p-large: .4rem;
+@p-large-su: .7rem;
+
+// margin的尺寸变量
+@m-small: .1rem;
+@m-normal: .3rem;
+@m-large: .7rem;
+
+
+@fontColor: var(--color);
+@fontColor-bleak: rgba(45, 46, 54, .5);
+@fontColor-bleak-bleak: rgba(45, 46, 54, .1);
+@fontColor-none: rgba(45, 46, 54, 0);
+// 芡食白
+@fontColor-light: rgba(226, 225, 228, 1);
+
+@fonColor-dark: @fontColor;
+@fonColor-dark-bleak: rgba(45, 46, 54, .1);
+
+// 布局变量
+@padding-layout-small: 5rem;
+@padding-layout-normal: 7rem;
+@padding-layout-large: 10rem;
+@padding-layout-large-su: 15rem;
+
+// button hover
+// hover shadow length
+@hoverLength-n: .5rem;
+// blur length
+@hoverBlurLength: .7rem;
+
+// 动画过渡时间
+@time-s: .2s;
+@time-n: .3s;
+@time-l: .5s;
+
+.width {
+  max-width: 75vw;
+  min-width: 55vw;
+}
+
+// light/dark
+@bac: var(--bac);
+@bac-dark: var(--bac);
+@bac-dark-bleak: var(--bac-bleak);
+
+
+html, body {
+  scroll-bahavior: smooth !important;
+  overflow-x: hidden !important;
+}
+
+
+// 背景图
+.skin_normal .wrap1 {
+  background-color: @bac !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+// 不想显示的元素
+.aside {
+  .region_cnt:nth-child(1) {
+    .hide();
+  }
+}
+
+.tbui_fbar_auxiliaryCare, .gift-goin, #head, #com_userbar, .j_click_close, .label_text, a.j_click_stats, div.card_info, li.tbui_fbar_feedback, .zyq_mod_link, .app_download_box {
+  .hide();
+}
+
+.celebrity {
+  .hide();
+}
+
+div {
+  border-radius: .7rem;
+}
+
+* {
+  transition-duration: .5s;
+  font-family: PingFangSC !important;
+}
+
+.card_banner {
+  width: 100vw !important;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.head_content {
+  .width();
+  width: 100% !important;
+}
+
+.card_top_wrap {
+  .width();
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+
+  .card_top {
+    width: 100%;
+    height: fit-content !important;
+
+    .card_head {
+      padding: 0;
+      margin: 14px !important;
+      position: unset !important;
+    }
+  }
+
+  .card_top_right {
+    float: unset !important;
+  }
+}
+
+.card_top_theme .card_top {
+  padding: 0 !important;
+}
+
+.content {
+  background: rgba(255, 255, 255, .7);
+  .width();
+  width: 100% !important;
+
+  .forum_content {
+    border: none;
+    display: flex;
+    flex-direction: row;
+  }
+
+  #content_wrap {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex: 1 !important;
+
+    #pagelet_frs-list /pagelet/ content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      #content_leftList {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.button {
+  border-radius: 2.7rem !important;
+}
+
+
+.radio {
+  border-radius: @radio-l;
+}
+
+// 圆角处理
+.focus_btn, .media_left, .media_left > .head_img {
+  .radio();
+  overflow: hidden;
+}
+
+.col2_left .j_threadlist_li_left {
+  span {
+    text-align: center;
+    font-size: 15px;
+    justify-content: flex-start;
+    background: none !important;
+  }
+}
+
+// tab栏聚焦
+.focus .j_tbnav_tab {
+  border-radius: .7rem !important;
+  background: rgba(255, 255, 255, .7) !important;
+
+  &:hover {
+    color: @dangerColor;
+    background: none !important;
+  }
+
+  a {
+    &:hover {
+      color: @dangerColor;
+      background: none !important;
+    }
+  }
+}
+
+.j_tbnav_tab {
+  transition-duration: .3s;
+}
+
+.card_head {
+  .radio();
+}
+
+// 关注的文字,它是背景图片
+#j_head_focus_btn {
+  position: relative;
+
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '关注/取消';
+    color: #fff;
+    font-size: 12px;
+  }
+
+  background: none !important;
+}
+
+
+.threadlist_rep_num {
+  background: @bac !important;
+  color: @fontColor !important;
+  font-size: @fontSize-n;
+
+  &:hover {
+    transform: scale(1.7);
+  }
+}
+
+.threadlist_rep_num:nth-child(1) {
+  font-size: @fontSize-l-su;
+}
+
+.threadlist_rep_num:nth-child(2) {
+  font-size: @fontSize-l;
+}
+
+.card_top_wrap, .nav_wrap {
+  background: none !important;
+  border: none !important;
+}
+
+.nav_wrap {
+  display: flex;
+  flex-direction: column;
+  .width();
+  margin: 0 auto;
+  height: fit-content !important;
+}
+
+.nav_list li.focus {
+  a {
+    background: none !important;
+    color: @dangerColor-bleak;
+    transition-duration: .5s;
+
+    &:hover {
+      color: @dangerColor;
+    }
+  }
+}
+
+.tbui_aside_float_bar {
+  margin: 0 !important;
+  position: fixed;
+  bottom: 14px !important;
+  right: 14px !important;
+  left: unset !important;
+
+  li {
+    border-radius: @radio-l !important;
+    overflow: hidden !important;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+// 置顶按钮
+i.icon-top {
+
+}
+
+
+a {
+  color: @dangerColor-bleak !important;
+
+  &:hover {
+    color: @dangerColor !important;
+  }
+}
+
+// 搜索框
+.search_internal_wrap {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+
+  input {
+    border: 2px solid @borderColor;
+    border-radius: 5px;
+    background: @bac;
+    color: @fontColor;
+    padding-top: @p-large;
+    padding-bottom: @p-large;
+  }
+
+  button.search_internal_btn {
+    border-radius: @radio-l;
+    margin-left: @m-large;
+    background: none !important;
+    display: flex;
+    align-items: center;
+
+    i:before {
+      content: '搜索';
+      color: @fontColor;
+
+      &:hover {
+        color: @dangerColor;
+      }
+    }
+  }
+}
+
+.threadlist_bright .threadlist_abs_onlyline, .threadlist_bright .threadlist_abs {
+  width: 100%;
+  overflow: hidden;
+  color: #666;
+}
+
+
+
+
+
