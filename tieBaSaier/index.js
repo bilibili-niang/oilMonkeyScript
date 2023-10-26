@@ -4,18 +4,17 @@
 // @version      0.1
 // @description  美化你的贴吧UI
 // @author       张嘉凯
-// @homepageURL  https://github.com/codelumos/tampermonkey-scripts
-// @match       https://tieba.baidu.com/*
+// @homepageURL  https://github.com/bilibili-niang/oilMonkeyScript
+// @match        https://tieba.baidu.com/*
 // @icon         https://www.baidu.com/favicon.ico
 // @grant        none
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js
 // @require      http://localhost:89/less.js
 // ==/UserScript==
 $(document).ready(() => {
-  console.log("PageData.forum.id:");
-  console.log(PageData.forum.id);
   if (PageData.forum.id == "2173925") {
     console.log("贴吧美化开始~");
+    console.log("目前仅支持赛尔号吧");
     addStyle();
   }
   // removeElement();
@@ -29,8 +28,7 @@ const addStyle = function () {
   console.log("addStyle");
   // 动态加载远程Less文件
   $.ajax({
-    // url: "https://blog.icestone.work/index.less", // 替换为实际的Less文件URL
-    url: "http://localhost:89/index.less", // 替换为实际的Less文件URL
+    url: "https://gitee.com/icestone9/oilMonkeyScript/raw/main/tieBaSaier/index.less",
     dataType: "text",
     success: function (lessCode) {
       console.log("远程less加载成功");
