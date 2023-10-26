@@ -27,31 +27,36 @@ $(document).ready(() => {
 const addStyle = function () {
   console.log("addStyle");
   // 动态加载远程Less文件
-  $.ajax({
-    url: "https://gitee.com/icestone9/oilMonkeyScript/raw/main/tieBaSaier/index.less",
-    dataType: "text",
-    success: function (lessCode) {
-      console.log("远程less加载成功");
-      // 创建style标签用于插入解析后的CSS代码
-      const styleNode = document.createElement("style");
-      styleNode.setAttribute("type", "text/css");
+  // 确保 Less.js 已经加载
+  if (typeof less === "undefined") {
+    console.error("Less.js 没有正确加载");
+  } else {
+    $.ajax({
+      url: "https://gitee.com/icestone9/oilMonkeyScript/raw/main/tieBaSaier/index.less",
+      dataType: "text",
+      crossDomain: true,  // 允许跨域请求
+      success: function (lessCode) {
+        console.log("远程less加载成功");
+        // 创建style标签用于插入解析后的CSS代码
+        const styleNode = document.createElement("style");
+        styleNode.setAttribute("type", "text/css");
 
-      // 使用Less.js解析Less代码并插入到style标签中
-      less.render(lessCode, function (err, output) {
-        if (err) {
-          console.error("Less解析错误:", err);
-          return;
-        }
-        styleNode.textContent = output.css;
-      });
-
-      // 将style标签添加到页面头部
-      document.head.appendChild(styleNode);
-    },
-    error: function (jqXHR, textStatus, errorThrown) {
-      console.error("加载Less文件失败:", textStatus, errorThrown);
-    }
-  });
+        // 使用Less.js解析Less代码并插入到style标签中
+        less.render(lessCode, function (err, output) {
+          if (err) {
+            console.error("Less解析错误:", err);
+            return;
+          }
+          styleNode.textContent = output.css;
+          // 将style标签添加到页面头部
+          document.head.appendChild(styleNode);
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error("加载Less文件失败:", textStatus, errorThrown);
+      }
+    });
+  }
 };
 
 /**
