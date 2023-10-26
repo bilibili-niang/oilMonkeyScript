@@ -9,7 +9,7 @@
 // @icon         https://www.baidu.com/favicon.ico
 // @grant        none
 // @require      https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js
-// @require      http://localhost:89/less.js
+// @require      https://cdn.bootcdn.net/ajax/libs/less.js/4.2.0/less.min.js
 // ==/UserScript==
 $(document).ready(() => {
   if (PageData.forum.id == "2173925") {
